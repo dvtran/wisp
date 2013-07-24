@@ -1,19 +1,41 @@
-<link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,400,300' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,400,300|Norican' rel='stylesheet' type='text/css'>
 
 <div class="container">
-<h1>wisp <span>(sounds good)</span></h1>
-<table>  
-<% @posts.each do |post| %>  
+<div class="bar">wisp (sounds good)</div>
+<div class="content">
+<!-- 
+<a>explore</a>
+<table>
 	<tr>
-		<td><%= post.key %></td>
-		<td><%= link_to "Download", download_url_for(post.key) %></td>  
-		<td><%= link_to "Delete", "posts/delete/?post=" + post.key, :confirm => 'Are you sure you want to delete ' + post.key + '?' %></td>
+		<td>filename</td>
+		<td>author</td>
+		<td>date</td>
+		<td>location</td>
+		<td>tag</td>
 	</tr>
+</table> -->
+
+<% @posts.each do |post| %>  
+	<div class="post">
+		<table>  
+		<tr>
+			<td><%= post.key %></td>
+
+			<td><%= link_to "Download", download_url_for(post.key) %></td>  
+			<td><%= link_to "Delete", "posts/delete/?post=" + post.key, :confirm => 'Are you sure you want to delete ' + post.key + '?' %></td>
+		</tr>
+		</table> 
+		<audio src=<%= download_url_for(post.key) %> controls>
+		</audio>
+	</div>
 <% end %>  
-</table> 
-<p>Upload a new MP3:</p>  
+
+
+</div>
+
+<!-- <p>Upload a new MP3:</p>
 <%= form_tag upload_path, :method => "post", :multipart => true do %>  
-    <%= file_field_tag "mp3file" %>  
+    <%= file_field_tag "oggfile" %>  
     <%= submit_tag "Upload" %>  
 <% end %>  
-</div>
+</div> -->
