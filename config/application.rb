@@ -60,8 +60,8 @@ module Wisp
     config.assets.version = '1.0'
 
     AWS::S3::Base.establish_connection!(
-        :access_key_id     => ENV['S3_KEY'],
-        :secret_access_key => ENV['S3_SECRET']
+        :access_key_id     => 'AKIAIOGZATNEIBT5HWFA',
+        :secret_access_key => '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'
     )
     BUCKET = 'wispdata'
   end
