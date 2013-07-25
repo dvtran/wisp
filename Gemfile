@@ -25,6 +25,7 @@ end
 gem 'jquery-rails'
 
 gem 'aws-s3', :require => 'aws/s3'
+# gem 'activerecord-postgres-adapter'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
