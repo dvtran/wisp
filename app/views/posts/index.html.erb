@@ -1,23 +1,25 @@
-<link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,400,300|Norican' rel='stylesheet' type='text/css'>
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+<!-- <script type="text/javascript" src="js/audiohack.js"></script>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script> 
+<script type="text/javascript" src="js/amazons3uploader.js"></script> -->
+
+<!--
+<script src="http://cwilso.github.io/AudioContext-MonkeyPatch/AudioContextMonkeyPatch.js"></script>
+<script src="audiorecording/js/recorder.js"></script>
+<script src="audiorecording/js/main.js"></script> 
+-->
+
+
 
 <div class="container">
 <div class="bar">wisp (sounds good)</div>
 <div class="content">
-<!-- 
-<a>explore</a>
-<table>
-	<tr>
-		<td>filename</td>
-		<td>author</td>
-		<td>date</td>
-		<td>location</td>
-		<td>tag</td>
-	</tr>
-</table> -->
 
 <% @posts.each do |post| %>  
 	<div class="post">
+
+		<%= post.metadata[:Name] %> from <%= post.metadata[:loc] %><br>
+		<small>posted at <%= post.about[:date] %></small>
+
 		<table>  
 		<tr>
 			<td><%= post.key %></td>
@@ -31,26 +33,10 @@
 	</div>
 <% end %>  
 
-<!-- <div id="container_button">
-	<div id="hole">
-		<div id="button">
-			<div id="triangle"></div>
-			<div id="lighter_triangle"></div>
-			<div id="darker_triangle"></div>
-		</div>
-	</div>
-</div>
---> 
-<div><input type="file" accept="video/*" name="image_file" id="image_file" onchange="fileSelected();" /></div>
-
-<div class="record">
-	<input type="button" id="recordbutton" value="record!"/>
-</div>
-<!-- <p>Upload a new MP3:</p>
+<p>Upload a new MP3:</p>
 <%= form_tag upload_path, :method => "post", :multipart => true do %>  
     <%= file_field_tag "oggfile" %>  
-    <%= submit_tag "Upload" %>  
+    <%= submit_tag "upload!" %>  
 <% end %>  
--->
-
+</div>
 </div>
